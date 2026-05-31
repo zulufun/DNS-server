@@ -2,14 +2,17 @@ services:
   dns-server:
     container_name: dns-server
     hostname: dns-server
-    image: docker.io/technitium/dns-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: technitium/dns-server:source
     # For DHCP deployments, use "host" network mode and remove all the port mappings, including the ports array by commenting them
     # network_mode: "host"
     ports:
       - "5380:5380/tcp" #DNS web console (HTTP)
       # - "53443:53443/tcp" #DNS web console (HTTPS)
-      - "53:53/udp" #DNS service
-      - "53:53/tcp" #DNS service
+      - "1053:53/udp" #DNS service (host port changed for local testing)
+      - "1053:53/tcp" #DNS service (host port changed for local testing)
       # - "853:853/udp" #DNS-over-QUIC service
       # - "853:853/tcp" #DNS-over-TLS service
       # - "443:443/udp" #DNS-over-HTTPS service (HTTP/3)

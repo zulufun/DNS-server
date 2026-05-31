@@ -1,5 +1,20 @@
 # syntax=docker.io/docker/dockerfile:1
 
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+
+RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates && rm -rf /var/lib/apt/lists/*
+
+RUN git clone --depth 1 https://github.com/TechnitiumSoftware/TechnitiumLibrary.git /TechnitiumLibrary \
+  && dotnet build /TechnitiumLibrary/TechnitiumLibrary.ByteTree/TechnitiumLibrary.ByteTree.csproj -c Release \
+  && dotnet build /TechnitiumLibrary/TechnitiumLibrary.Net/TechnitiumLibrary.Net.csproj -c Release \
+  && dotnet build /TechnitiumLibrary/TechnitiumLibrary.Security.OTP/TechnitiumLibrary.Security.OTP.csproj -c Release
+
+WORKDIR /src
+COPY --link . .
+
+# Build from source so docker compose can produce an image directly from this repo.
+RUN dotnet publish DnsServerApp/DnsServerApp.csproj -c Release -o /out /p:UseAppHost=false
+
 FROM mcr.microsoft.com/dotnet/aspnet:10.0
 
 # Add the MS repo to install `libmsquic` to support DNS-over-QUIC:
@@ -15,9 +30,9 @@ RUN <<HEREDOC
   mkdir /etc/dns
 HEREDOC
 
-# Project is built outside of Docker, copy over the build directory:
+# Copy the publish output from the build stage.
 WORKDIR /opt/technitium/dns
-COPY --link ./DnsServerApp/bin/Release/publish /opt/technitium/dns
+COPY --from=build /out /opt/technitium/dns
 
 ENTRYPOINT ["/usr/bin/dotnet", "/opt/technitium/dns/DnsServerApp.dll"]
 CMD ["/etc/dns"]
