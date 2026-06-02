@@ -15,9 +15,9 @@ services:
       - "1053:53/tcp" #DNS service (host port changed for local testing)
       # - "853:853/udp" #DNS-over-QUIC service
       # - "853:853/tcp" #DNS-over-TLS service
-      # - "443:443/udp" #DNS-over-HTTPS service (HTTP/3)
-      # - "443:443/tcp" #DNS-over-HTTPS service (HTTP/1.1, HTTP/2)
-      # - "80:80/tcp" #DNS-over-HTTP service (use with reverse proxy or certbot certificate renewal)
+      - "443:443/udp" #DNS-over-HTTPS service (HTTP/3)
+      - "443:443/tcp" #DNS-over-HTTPS service (HTTP/1.1, HTTP/2)
+      - "80:80/tcp" #DNS-over-HTTP service (use with reverse proxy or certbot certificate renewal)
       # - "8053:8053/tcp" #DNS-over-HTTP service (use with reverse proxy)
       # - "67:67/udp" #DHCP service
     environment:
