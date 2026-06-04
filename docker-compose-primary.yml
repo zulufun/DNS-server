@@ -1,0 +1,31 @@
+services:
+  dns-server-primary:
+    container_name: dns-server-primary
+    hostname: dns-server-primary
+    image: technitium/dns-server:source
+    ports:
+      - "15380:5380/tcp" # DNS web console (HTTP) cho secondary
+      - "15344:53443/tcp" # DNS web console (HTTPS) cho secondary
+    # Không map port 53 (DNS) ra host để tránh xung đột với primary.
+    # Container này chỉ giao tiếp nội bộ trong mạng docker để xử lý DNS.
+    environment:
+      - DNS_SERVER_DOMAIN=dns-server-primary
+    volumes:
+      - primary-config:/etc/dns
+      - primary-logs:/var/log/technitium/dns
+    restart: unless-stopped
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65535
+    networks:
+      - dns_network
+
+volumes:
+  primary-config:
+  primary-logs:
+
+networks:
+  dns_network:
+    # Tham chiếu đến network mặc định được tạo bởi file docker-compose.yml chính.
+    # Thông thường Docker Compose sẽ lấy tên thư mục hiện tại làm prefix, ví dụ: dns-server_default.
+    name: dns-server_default
+    external: true

@@ -34,7 +34,7 @@ bld/
 # NUNIT
 *.VisualState.xml
 TestResult.xml
-
+import
 BanGhiDNS
 # Build Results of an ATL Project
 [Dd]ebugPS/
