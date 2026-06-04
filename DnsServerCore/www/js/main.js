@@ -263,7 +263,7 @@ $(function () {
 
     var headerHtml = $("#header").html();
 
-    $("#header").html("<div class=\"title\"><a href=\".\"><img src=\"img/logo25x25.png\" alt=\"Technitium Logo\" /><span class=\"text\" style=\"color: #ffffff;\">Technitium</span></a>" + headerHtml + "</div>");
+    $("#header").html("<div class=\"title\"><a href=\".\"><img src=\"img/logo25x25.png\" alt=\"DNS Server Logo\" /><span class=\"text\" style=\"color: #ffffff;\">DNS Server</span></a>" + headerHtml + "</div>");
     $("#footer").html("");
 
     loadQuickBlockLists();

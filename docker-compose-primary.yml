@@ -2,7 +2,10 @@ services:
   dns-server-primary:
     container_name: dns-server-primary
     hostname: dns-server-primary
-    image: technitium/dns-server:source
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ducfuc/dns-server:source
     ports:
       - "15380:5380/tcp" # DNS web console (HTTP) cho secondary
       - "15344:53443/tcp" # DNS web console (HTTPS) cho secondary
