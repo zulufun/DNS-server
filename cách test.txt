@@ -1,0 +1,18 @@
+Cách 1: Chạy lệnh trực tiếp từ bên ngoài Bạn mở terminal ở máy tính của bạn và chạy các lệnh docker exec, ví dụ test phân giải một tên miền bất kỳ qua từng server:
+
+bash
+# Test qua Primary
+docker exec -it dns-tester dig @dns-server-primary google.com
+# Test qua Secondary 01
+docker exec -it dns-tester dig @dns-server-secondary-01 mat.domain.com
+# Test qua Secondary.mat
+docker exec -it dns-tester nslookup mat.domain.com secondarry.mat
+Cách 2: Truy cập vào thẳng shell của dns-tester để thao tác liên tục
+
+bash
+docker exec -it dns-tester bash
+Sau khi vào bên trong (dấu nhắc lệnh thay đổi), bạn có thể gõ thẳng các lệnh mạng như:
+
+bash
+dig @dns-server-primary domain-cua-ban.com
+nslookup domain-cua-ban.com secondarry.mat

@@ -142,17 +142,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     <div class="panel-body" style="min-height: 500px;">
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li id="mainPanelTabListDashboard" role="presentation" class="active"><a href="#mainPanelTabPaneDashboard" aria-controls="mainPanelTabPaneDashboard" role="tab" data-toggle="tab" onclick="refreshDashboard();">Dashboard</a></li>
+                                <li id="mainPanelTabListDashboard" role="presentation" class="active"><a href="#mainPanelTabPaneDashboard" aria-controls="mainPanelTabPaneDashboard" role="tab" data-toggle="tab" onclick="refreshDashboard();">Bảng điều khiển</a></li>
                                 <li id="mainPanelTabListZones" role="presentation"><a href="#mainPanelTabPaneZones" aria-controls="mainPanelTabPaneZones" role="tab" data-toggle="tab" onclick="refreshZones(true);">Zones</a></li>
                                 <li id="mainPanelTabListCachedZones" role="presentation"><a href="#mainPanelTabPaneCachedZones" aria-controls="mainPanelTabPaneCachedZones" role="tab" data-toggle="tab">Cache</a></li>
-                                <li id="mainPanelTabListAllowedZones" role="presentation"><a href="#mainPanelTabPaneAllowedZones" aria-controls="mainPanelTabPaneAllowedZones" role="tab" data-toggle="tab">Allowed</a></li>
-                                <li id="mainPanelTabListBlockedZones" role="presentation"><a href="#mainPanelTabPaneBlockedZones" aria-controls="mainPanelTabPaneBlockedZones" role="tab" data-toggle="tab">Blocked</a></li>
-                                <li id="mainPanelTabListApps" role="presentation"><a href="#mainPanelTabPaneApps" aria-controls="mainPanelTabPaneApps" role="tab" data-toggle="tab" onclick="refreshApps();">Apps</a></li>
+                                <li id="mainPanelTabListAllowedZones" role="presentation"><a href="#mainPanelTabPaneAllowedZones" aria-controls="mainPanelTabPaneAllowedZones" role="tab" data-toggle="tab">Cho phép</a></li>
+                                <li id="mainPanelTabListBlockedZones" role="presentation"><a href="#mainPanelTabPaneBlockedZones" aria-controls="mainPanelTabPaneBlockedZones" role="tab" data-toggle="tab">Bị chặn</a></li>
+                                <li id="mainPanelTabListApps" role="presentation"><a href="#mainPanelTabPaneApps" aria-controls="mainPanelTabPaneApps" role="tab" data-toggle="tab" onclick="refreshApps();">Ứng dụng</a></li>
                                 <li id="mainPanelTabListDnsClient" role="presentation"><a href="#mainPanelTabPaneDnsClient" aria-controls="mainPanelTabPaneDnsClient" role="tab" data-toggle="tab">DNS Client</a></li>
-                                <li id="mainPanelTabListSettings" role="presentation"><a href="#mainPanelTabPaneSettings" aria-controls="mainPanelTabPaneSettings" role="tab" data-toggle="tab" onclick="refreshDnsSettings();">Settings</a></li>
+                                <li id="mainPanelTabListSettings" role="presentation"><a href="#mainPanelTabPaneSettings" aria-controls="mainPanelTabPaneSettings" role="tab" data-toggle="tab" onclick="refreshDnsSettings();">Cài đặt</a></li>
                                 <li id="mainPanelTabListDhcp" role="presentation"><a href="#mainPanelTabPaneDhcp" aria-controls="mainPanelTabPaneDhcp" role="tab" data-toggle="tab" onclick="refreshDhcpTab();">DHCP</a></li>
-                                <li id="mainPanelTabListAdmin" role="presentation"><a href="#mainPanelTabPaneAdmin" aria-controls="mainPanelTabPaneAdmin" role="tab" data-toggle="tab" onclick="refreshAdminTab();">Administration</a></li>
-                                <li id="mainPanelTabListLogs" role="presentation"><a href="#mainPanelTabPaneLogs" aria-controls="mainPanelTabPaneLogs" role="tab" data-toggle="tab" onclick="refreshLogsTab();">Logs</a></li>
+                                <li id="mainPanelTabListAdmin" role="presentation"><a href="#mainPanelTabPaneAdmin" aria-controls="mainPanelTabPaneAdmin" role="tab" data-toggle="tab" onclick="refreshAdminTab();">Quản trị</a></li>
+                                <li id="mainPanelTabListLogs" role="presentation"><a href="#mainPanelTabPaneLogs" aria-controls="mainPanelTabPaneLogs" role="tab" data-toggle="tab" onclick="refreshLogsTab();">Nhật ký</a></li>
                             </ul>
 
                             <div class="tab-content">
@@ -941,15 +941,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                         <form style="margin-top: 10px;" onsubmit="return false;">
 
                                             <ul class="nav nav-tabs" role="tablist">
-                                                <li id="settingsTabListGeneral" role="presentation" class="active"><a href="#settingsTabPaneGeneral" aria-controls="settingsTabPaneGeneral" role="tab" data-toggle="tab">General</a></li>
+                                                <li id="settingsTabListGeneral" role="presentation" class="active"><a href="#settingsTabPaneGeneral" aria-controls="settingsTabPaneGeneral" role="tab" data-toggle="tab">Chung</a></li>
                                                 <li id="settingsTabListWebService" role="presentation"><a href="#settingsTabPaneWebService" aria-controls="settingsTabPaneWebService" role="tab" data-toggle="tab">Web Service</a></li>
-                                                <li id="settingsTabListOptionalProtocols" role="presentation"><a href="#settingsTabPaneOptionalProtocols" aria-controls="settingsTabPaneOptionalProtocols" role="tab" data-toggle="tab">Optional Protocols</a></li>
+                                                <li id="settingsTabListOptionalProtocols" role="presentation"><a href="#settingsTabPaneOptionalProtocols" aria-controls="settingsTabPaneOptionalProtocols" role="tab" data-toggle="tab">Giao thức tùy chọn</a></li>
                                                 <li id="settingsTabListTsig" role="presentation"><a href="#settingsTabPaneTsig" aria-controls="settingsTabPaneTsig" role="tab" data-toggle="tab">TSIG</a></li>
                                                 <li id="settingsTabListRecursion" role="presentation"><a href="#settingsTabPaneRecursion" aria-controls="settingsTabPaneRecursion" role="tab" data-toggle="tab">Recursion</a></li>
                                                 <li id="settingsTabListCache" role="presentation"><a href="#settingsTabPaneCache" aria-controls="settingsTabPaneCache" role="tab" data-toggle="tab">Cache</a></li>
-                                                <li id="settingsTabListBlocking" role="presentation"><a href="#settingsTabPaneBlocking" aria-controls="settingsTabPaneBlocking" role="tab" data-toggle="tab">Blocking</a></li>
+                                                <li id="settingsTabListBlocking" role="presentation"><a href="#settingsTabPaneBlocking" aria-controls="settingsTabPaneBlocking" role="tab" data-toggle="tab">Chặn</a></li>
                                                 <li id="settingsTabListProxyForwarders" role="presentation"><a href="#settingsTabPaneProxyForwarders" aria-controls="settingsTabPaneProxyForwarders" role="tab" data-toggle="tab">Proxy &amp; Forwarders</a></li>
-                                                <li id="settingsTabListLogging" role="presentation"><a href="#settingsTabPaneLogging" aria-controls="settingsTabPaneLogging" role="tab" data-toggle="tab">Logging</a></li>
+                                                <li id="settingsTabListLogging" role="presentation"><a href="#settingsTabPaneLogging" aria-controls="settingsTabPaneLogging" role="tab" data-toggle="tab">Nhật ký</a></li>
 
                                                 <li class="pull-right">
                                                     <select id="optSettingsClusterNode" class="form-control pull-right cluster-node-dropdown" style="margin-left: 0px;" onchange="refreshDnsSettings();"></select>
@@ -2810,11 +2810,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
                                     <div>
                                         <ul class="nav nav-tabs" role="tablist">
-                                            <li id="adminTabListSessions" role="presentation" class="active"><a href="#adminTabPaneSessions" aria-controls="adminTabPaneSessions" role="tab" data-toggle="tab" onclick="refreshAdminSessions();">Sessions</a></li>
-                                            <li id="adminTabListUsers" role="presentation"><a href="#adminTabPaneUsers" aria-controls="adminTabPaneUsers" role="tab" data-toggle="tab" onclick="refreshAdminUsers();">Users</a></li>
-                                            <li id="adminTabListGroups" role="presentation"><a href="#adminTabPaneGroups" aria-controls="adminTabPaneGroups" role="tab" data-toggle="tab" onclick="refreshAdminGroups();">Groups</a></li>
-                                            <li id="adminTabListPermissions" role="presentation"><a href="#adminTabPanePermissions" aria-controls="adminTabPanePermissions" role="tab" data-toggle="tab" onclick="refreshAdminPermissions();">Permissions</a></li>
-                                            <li id="adminTabListSso" role="presentation"><a href="#adminTabPaneSso" aria-controls="adminTabPaneSso" role="tab" data-toggle="tab" onclick="refreshAdminSsoConfig();">Single Sign-On (SSO)</a></li>
+                                            <li id="adminTabListSessions" role="presentation" class="active"><a href="#adminTabPaneSessions" aria-controls="adminTabPaneSessions" role="tab" data-toggle="tab" onclick="refreshAdminSessions();">Phiên</a></li>
+                                            <li id="adminTabListUsers" role="presentation"><a href="#adminTabPaneUsers" aria-controls="adminTabPaneUsers" role="tab" data-toggle="tab" onclick="refreshAdminUsers();">Người dùng</a></li>
+                                            <li id="adminTabListGroups" role="presentation"><a href="#adminTabPaneGroups" aria-controls="adminTabPaneGroups" role="tab" data-toggle="tab" onclick="refreshAdminGroups();">Nhóm</a></li>
+                                            <li id="adminTabListPermissions" role="presentation"><a href="#adminTabPanePermissions" aria-controls="adminTabPanePermissions" role="tab" data-toggle="tab" onclick="refreshAdminPermissions();">Quyền hạn</a></li>
+                                            <li id="adminTabListSso" role="presentation"><a href="#adminTabPaneSso" aria-controls="adminTabPaneSso" role="tab" data-toggle="tab" onclick="refreshAdminSsoConfig();">Đăng nhập một lần (SSO)</a></li>
                                             <li id="adminTabListCluster" role="presentation"><a href="#adminTabPaneCluster" aria-controls="adminTabPaneCluster" role="tab" data-toggle="tab" onclick="refreshAdminCluster();">Cluster</a></li>
                                         </ul>
 
@@ -3112,8 +3112,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                 <div id="mainPanelTabPaneLogs" role="tabpanel" class="tab-pane" style="padding: 10px 0 0 0;">
 
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <li id="logsTabListLogViewer" role="presentation" class="active"><a href="#logsTabPaneLogViewer" aria-controls="logsTabPaneLogViewer" role="tab" data-toggle="tab" onclick="refreshLogFilesList();">View Logs</a></li>
-                                        <li id="logsTabListQueryLogs" role="presentation"><a href="#logsTabPaneQueryLogs" aria-controls="logsTabPaneQueryLogs" role="tab" data-toggle="tab" onclick="refreshQueryLogsTab();">Query Logs</a></li>
+                                        <li id="logsTabListLogViewer" role="presentation" class="active"><a href="#logsTabPaneLogViewer" aria-controls="logsTabPaneLogViewer" role="tab" data-toggle="tab" onclick="refreshLogFilesList();">Xem nhật ký</a></li>
+                                        <li id="logsTabListQueryLogs" role="presentation"><a href="#logsTabPaneQueryLogs" aria-controls="logsTabPaneQueryLogs" role="tab" data-toggle="tab" onclick="refreshQueryLogsTab();">Nhật ký truy vấn</a></li>
 
                                         <li class="pull-right">
                                             <select id="optLogsClusterNode" class="form-control pull-right cluster-node-dropdown" style="margin-left: 0px;" onchange="logsClusterNodeChanged();"></select>
@@ -4941,11 +4941,11 @@ MII...
 
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li id="tabListZoneOptionsGeneral" role="presentation" class="active"><a href="#tabPaneZoneOptionsGeneral" aria-controls="tabPaneZoneOptionsGeneral" role="tab" data-toggle="tab">General</a></li>
-                                <li id="tabListZoneOptionsQueryAccess" role="presentation"><a href="#tabPaneZoneOptionsQueryAccess" aria-controls="tabPaneZoneOptionsQueryAccess" role="tab" data-toggle="tab">Query Access</a></li>
+                                <li id="tabListZoneOptionsGeneral" role="presentation" class="active"><a href="#tabPaneZoneOptionsGeneral" aria-controls="tabPaneZoneOptionsGeneral" role="tab" data-toggle="tab">Chung</a></li>
+                                <li id="tabListZoneOptionsQueryAccess" role="presentation"><a href="#tabPaneZoneOptionsQueryAccess" aria-controls="tabPaneZoneOptionsQueryAccess" role="tab" data-toggle="tab">Quyền truy vấn</a></li>
                                 <li id="tabListZoneOptionsZoneTranfer" role="presentation"><a href="#tabPaneZoneOptionsZoneTransfer" aria-controls="tabPaneZoneOptionsZoneTransfer" role="tab" data-toggle="tab">Zone Transfer</a></li>
                                 <li id="tabListZoneOptionsNotify" role="presentation"><a href="#tabPaneZoneOptionsNotify" aria-controls="tabPaneZoneOptionsNotify" role="tab" data-toggle="tab">Notify</a></li>
-                                <li id="tabListZoneOptionsUpdate" role="presentation"><a href="#tabPaneZoneOptionsUpdate" aria-controls="tabPaneZoneOptionsUpdate" role="tab" data-toggle="tab">Dynamic Updates (RFC 2136)</a></li>
+                                <li id="tabListZoneOptionsUpdate" role="presentation"><a href="#tabPaneZoneOptionsUpdate" aria-controls="tabPaneZoneOptionsUpdate" role="tab" data-toggle="tab">Cập nhật động (RFC 2136)</a></li>
                             </ul>
 
                             <div class="tab-content">

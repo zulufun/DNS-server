@@ -1,0 +1,30 @@
+services:
+  secondarry.mat:
+    container_name: secondarry.mat
+    hostname: secondarry.mat
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ducfuc/dns-server:source
+    ports:
+      - "25380:5380/tcp"
+      - "25344:53443/tcp"
+    environment:
+      - DNS_SERVER_DOMAIN=secondarry.mat
+    volumes:
+      - secondary-mat-config:/etc/dns
+      - secondary-mat-logs:/var/log/technitium/dns
+    restart: unless-stopped
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65535
+    networks:
+      - dns_cluster
+
+volumes:
+  secondary-mat-config:
+  secondary-mat-logs:
+
+networks:
+  dns_cluster:
+    name: dns_cluster
+    external: true

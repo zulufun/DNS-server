@@ -7,10 +7,17 @@ services:
       dockerfile: Dockerfile
     image: ducfuc/dns-server:source
     ports:
-      - "15380:5380/tcp" # DNS web console (HTTP) cho secondary
-      - "15344:53443/tcp" # DNS web console (HTTPS) cho secondary
-    # Không map port 53 (DNS) ra host để tránh xung đột với primary.
-    # Container này chỉ giao tiếp nội bộ trong mạng docker để xử lý DNS.
+      - "5380:5380/tcp" #DNS web console (HTTP)
+      - "53443:53443/tcp" #DNS web console (HTTPS)
+      - "53:53/udp" #DNS service
+      - "53:53/tcp" #DNS service
+      - "853:853/udp" #DNS-over-QUIC service
+      - "853:853/tcp" #DNS-over-TLS service
+      - "443:443/udp" #DNS-over-HTTPS service (HTTP/3)
+      - "443:443/tcp" #DNS-over-HTTPS service (HTTP/1.1, HTTP/2)
+      - "80:80/tcp" #DNS-over-HTTP service
+      - "8053:8053/tcp" #DNS-over-HTTP service
+      - "67:67/udp" #DHCP service
     environment:
       - DNS_SERVER_DOMAIN=dns-server-primary
     volumes:
@@ -20,15 +27,21 @@ services:
     sysctls:
       - net.ipv4.ip_local_port_range=1024 65535
     networks:
-      - dns_network
+      - dns_cluster
+
+  dns-tester:
+    container_name: dns-tester
+    image: nicolaka/netshoot
+    command: tail -f /dev/null
+    networks:
+      - dns_cluster
+    restart: unless-stopped
 
 volumes:
   primary-config:
   primary-logs:
 
 networks:
-  dns_network:
-    # Tham chiếu đến network mặc định được tạo bởi file docker-compose.yml chính.
-    # Thông thường Docker Compose sẽ lấy tên thư mục hiện tại làm prefix, ví dụ: dns-server_default.
-    name: dns-server_default
-    external: true
+  dns_cluster:
+    name: dns_cluster
+    driver: bridge
